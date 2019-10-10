@@ -22,7 +22,7 @@ class ImageTestClass(TestCase):
     # Testing delete Method
     def test_delete_method(self):
         self.image1.save_image()
-        image = Image.objects.filter(image_name='james').first()
+        image = Image.objects.filter(image_name='James').first()
         delete=Image.objects.filter(image_name=image.image_name).delete()
         images=Image.objects.all()
         self.assertTrue(len(images) == 0)         
