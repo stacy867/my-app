@@ -25,6 +25,60 @@ class ImageTestClass(TestCase):
         image = Image.objects.filter(image_name='James').first()
         delete=Image.objects.filter(image_name=image.image_name).delete()
         images=Image.objects.all()
-        self.assertTrue(len(images) == 0)         
+        self.assertTrue(len(images) == 0) 
+        
+# Location test
+
+class LocationTestClass(TestCase):
+    
+     # Set up method
+    def setUp(self):
+        self.location1= Location(location_name = 'kigali')
+            
+    
+    # Testing  instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.location1, Location))
+        
+    # Testing Save Method
+    def test_save_method(self):
+        self.location1.save_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations) > 0)
+        
+    # Testing delete Method
+    def test_delete_method(self):
+        self.location1.save_location()
+        location = Location.objects.filter(location_name = 'kigali').first()
+        delete=Location.objects.filter(location_name=location.location_name).delete()
+        locations=Location.objects.all()
+        self.assertTrue(len(locations) == 0) 
+
+# category test
+class CategoryTestClass(TestCase):
+    
+     # Set up method
+    def setUp(self):
+        self.category1= Category(name = 'Shoes')
+            
+    
+    # Testing  instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.category1, Category))
+        
+    # Testing Save Method
+    def test_save_method(self):
+        self.category1.save_category()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories) > 0)
+        
+    # Testing delete Method
+    def test_delete_method(self):
+        self.category1.save_category()
+        category = Category.objects.filter(name = 'Shoes').first()
+        delete=Category.objects.filter(name=Category.name).delete()
+        categories=Category.objects.all()
+        self.assertTrue(len(categories) == 0)                     
+                               
    
         

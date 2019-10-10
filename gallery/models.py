@@ -11,8 +11,14 @@ class Location(models.Model):
         return self.location_name
 
     def save_location(self):
-        self.save()           
+        self.save()    
+               
+    def delete_location(self):
+        self.delete() 
         
+    def update_location(self):
+        self.update()     
+            
 class Image(models.Model):
     
     image = models.ImageField(upload_to = 'images/',null=True)
@@ -34,7 +40,7 @@ class Image(models.Model):
          
         
     def update_image(self):
-        pass
+        self.update()
 
     @classmethod
     def get_image_by_id(cls,id):
@@ -55,5 +61,11 @@ class Category(models.Model):
     img_category= models.ManyToManyField(Image)
     
     def save_category(self):
-        self.save()   
+        self.save()
+        
+    def delete_category(self):
+        self.delete() 
+        
+    def update_category(self):
+        self.update()        
     
