@@ -28,6 +28,7 @@ class Location(models.Model):
 class Category(models.Model):
     
     name= models.CharField(max_length =30)
+    # image = models.ManyToManyField(Image)
    
     
     def save_category(self):
