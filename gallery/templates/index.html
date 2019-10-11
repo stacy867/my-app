@@ -3,4 +3,9 @@
 {% block content %}
 {{block.super}}
 <h1> Welcome to My Gallery</h1>
+{% for i in image%}
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    <img src="{{i.image.url}}" class="img-responsive" alt="Image">
+  </div>
+  {% endfor %}
 {% endblock %}
