@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 
+
 class Location(models.Model):
     location_name = models.CharField(max_length = 50)
     
@@ -18,14 +19,36 @@ class Location(models.Model):
         
     def update_location(self):
         self.update()     
-            
+
+
+
+        
+                    
+
+class Category(models.Model):
+    
+    name= models.CharField(max_length =30)
+   
+    
+    def save_category(self):
+        self.save()
+        
+    def delete_category(self):
+        self.delete() 
+        
+    def update_category(self):
+        self.update()    
+        
+    def __str__(self):
+        return self.name      
+    
 class Image(models.Model):
     
-    image = models.ImageField(upload_to = 'images/',null=True)
+    image = models.ImageField(upload_to ='images/',null=True)
     image_name= models.CharField(max_length =30)
     description= models.CharField(max_length =30)
     img_location= models.ForeignKey(Location,null=True)
-    # category= models.ForeignKey(Category,null=True)
+    category= models.ForeignKey(Category)
     
     def __str__(self):
         return self.image_name
@@ -47,25 +70,11 @@ class Image(models.Model):
         certain_image=cls.objects.filter(id=id)
     
     @classmethod
-    def search_by_name(cls,search_term):
-        certain_image = cls.objects.filter(image_name__icontains=search_term)
+    def search_by_name(cls,category):
+        certain_image = cls.objects.filter(category__name=category)
         return certain_image  
     
     @classmethod
-    def filter_by_location(location):
-        certain_image=cls.objects.filter(location=location)    
+    def filter_by_location(cls,location):
+        certain_image=cls.objects.filter(img_location__location_name=location)    
         
-class Category(models.Model):
-    
-    name= models.CharField(max_length =30)
-    img_category= models.ManyToManyField(Image)
-    
-    def save_category(self):
-        self.save()
-        
-    def delete_category(self):
-        self.delete() 
-        
-    def update_category(self):
-        self.update()        
-    
