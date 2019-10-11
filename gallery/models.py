@@ -69,6 +69,7 @@ class Image(models.Model):
     @classmethod
     def get_image_by_id(cls,id):
         certain_image=cls.objects.filter(id=id)
+        return certain_image
     
     @classmethod
     def search_by_name(cls,category):
@@ -77,5 +78,5 @@ class Image(models.Model):
     
     @classmethod
     def filter_by_location(cls,location):
-        certain_image=cls.objects.filter(img_location__location_name=location)    
-        
+        certain_image=cls.objects.filter(img_location__location_name__icontains=location)    
+        return certain_image

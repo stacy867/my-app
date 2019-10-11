@@ -4,8 +4,9 @@
 {{block.super}}
 
 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <a href="{%url 'image' image.id %}" class="btn btn-outline"><img src="{{image.image.url}}" class="img-responsive" alt="Image"></a>
+   
+        <img src="{{image.image.url}}" class="img-responsive" alt="Image"class="btn btn-primary" data-toggle="modal" data-target="#{{image.id}}">
     {{image.description}}
   </div>
- 
+  
 {% endblock %}

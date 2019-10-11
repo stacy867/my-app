@@ -40,9 +40,10 @@ def display_category(request):
 
 def display_location(request,location):
     
-        locat=Location.filter_by_location(loc=location)
-        image=Image.objects.all()
+        locat=Image.filter_by_location(location)
+        print(locat)
+        location=Location.objects.all()
        
     
-        return render(request,'all-apps/location.html',{'location':locat, 'image':image})      
+        return render(request,'all-apps/location.html',{'location':location, 'image':locat})      
             
