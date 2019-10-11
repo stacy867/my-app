@@ -22,12 +22,12 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'all-apps/search.html',{"message":message})
 
-def display_image(request,image_id):
+def display_image(request,id):
     try:
-        image=Image.objects.get(id=image_id)
+        image=Image.objects.get(id=id)
     except DoesNotExist:
         raise Http404()
-    return render(request,"welcome.html", {"image":image}) 
+    return render(request,'all-apps/image.html', {"image":image}) 
 
 def display_category(request):
     
@@ -35,5 +35,14 @@ def display_category(request):
         image=Image.objects.all()
        
     
-        return render(request,'all-apps/category.html',{'category':category, 'image':image}) 
+        return render(request,'all-apps/category.html',{'category':category, 'image':image})
+
+
+def display_location(request,location):
+    
+        locat=Location.filter_by_location(loc=location)
+        image=Image.objects.all()
+       
+    
+        return render(request,'all-apps/location.html',{'location':locat, 'image':image})      
             
