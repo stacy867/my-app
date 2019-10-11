@@ -29,12 +29,11 @@ def display_image(request,image_id):
         raise Http404()
     return render(request,"welcome.html", {"image":image}) 
 
-def display_category(request,name):
-    try:
-        category=Category.objects.filter(name=name).all()
+def display_category(request):
+    
+        category=Category.objects.all()
         image=Image.objects.all()
-        location=Location.objects.all()
-    except DoesNotExist:
-        raise Http404()
-    return render(request,"category.html", {"image":image},{"category":category},{"location":location}) 
+       
+    
+        return render(request,'all-apps/category.html',{'category':category, 'image':image}) 
             
