@@ -10,7 +10,7 @@
     <nav class="navbar navbar-inverse" style="font-family: 'Baloo Bhai', cursive;;background-color: black;color:white">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Stacy's Gallery</a>
+            <p class="navbar-brand" >Stacy's Gallery</p>
           </div>
           <ul class="nav navbar-nav">
             <li ><a href="{% url 'welcome' %}">Home</a></li>
@@ -20,10 +20,8 @@
             
             <li><a href="{% url 'location' location='kimironko' %}">Location</a></li>
           </ul>
-          <!-- <button class="btn btn-danger navbar-btn">Button</button> -->
-        </div>
-        <!-- Adding a search form  -->
-      <div class="col-sm-4 col-md-4 navbar-right">
+          
+          <div class="col-sm-4 col-md-4 navbar-right">
 
         <form class="navbar-form" role="search" action="{% url 'search_results' %}">
 
@@ -36,6 +34,9 @@
 
         </form>
       </div>
+        </div>
+        <!-- Adding a search form  -->
+      
       <!-- search form end -->
       </nav>
 </body>
