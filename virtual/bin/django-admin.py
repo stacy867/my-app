@@ -1,4 +1,4 @@
-#!/home/wecode/my_app/virtual/bin/python
+#!/home/wecode/my-app/virtual/bin/python
 from django.core import management
 
 if __name__ == "__main__":

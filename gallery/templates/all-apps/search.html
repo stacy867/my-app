@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container">
 
-  <div class="row">
+  <div class="row"style="color:white">
     {% if images%}
       <h2>Found {{ images|length }} of searched term {{message}}</h2>
     {% else %}
@@ -11,17 +11,25 @@
 
   </div>
 
-  <div class="row">
+  <div class="row align-items-center">
 
   {% if images %}
     {% for image in images %}
-      <div class="col-sm-6 col-md-3">
-        <h1>{{image.category}}</h1>
-          <h1>{{image.image_name}}</h1>
-          <img src="{{image.image.url}}">
-      </div>
+    <div class="card">
+        <div class="card-body" >
+            
+     
+        <h2 style="color:black"><strong>Photo's category:</strong>{{image.category}}</h2>
+          <h2 style="color:black"><strong>Photo's name:</strong>{{image.image_name}}</h2>
+          <div class="thumbnail" style="background-color: black">
+          <img style="height:30%; width:50%" src="{{image.image.url}}">
+        </div>
+          </div>
+          </div>
+      
     {% endfor %}
+  </div>
   {% endif %}
   </div>
-</div>
+
 {% endblock %}
