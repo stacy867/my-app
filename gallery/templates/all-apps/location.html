@@ -3,12 +3,12 @@
 {% block content %}
 {{block.super}}
 
-<div class="container">
+<div class="container"style="font-family: 'Baloo Bhai', cursive">
     <div class="row align-items-center">
       {% for c in image %}
       <div class="card">
-          <div class="card-body" > 
-              <h2 style="color:black;text-decoration-line: underline"><strong>photo Location:</strong>{{c.img_location.location_name}}</h2><br>
+<div class="card-body" > 
+<h2 style="color:black;text-decoration-line: underline"><strong>photo Location:</strong>{{c.img_location.location_name}}</h2><br>
          <div class="thumbnail" style="background-color: black">
     <img style="height:30%; width:50%"src="{{c.image.url}}" class="img img-responsive full-width"alt="img-responsive" data-toggle="modal" data-target="#{{i.id}}">
     </div>
