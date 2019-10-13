@@ -3,6 +3,17 @@
 {% block content %}
 {{block.super}}
 <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+<!-- Found this script on github -->
+<script>
+    function myFunction() {
+      var copyText = document.getElementById("link");
+      copyText.select();
+      document.execCommand("Copy");
+      // The execCommand() method executes the specified command for the selected part of an editable section.
+      // it will copy the photo's link
+      alert("Copied the text: " + copyText.value);
+    }
+  </script>
 <div class="container">
   <h2 style="text-align: center;color:black;font-family: 'Baloo Bhai', cursive";>"Welcome to my gallery"</h2><br>
     <div class="row align-items-center">
@@ -15,7 +26,7 @@
   </div>
   </div>
 </div>
-  <div class="modal fade" id="{{i.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="{{i.id}}" tabindex="-1" role="dialog"  aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -31,6 +42,14 @@
                <p><strong>Image category:</strong>{{i.category}}</p>
               
             </div>
+            <!-- Found this modal footer of copying a link on github -->
+            <div class="modal-footer">
+                <input class="form-control" type="text" value="{{ i.image.url }}" id="link">
+                <a onclick="myFunction()"><button type="button"  class="btn btn-dark">Copy Link</button></a>
+  
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                
+              </div>
             
         </div>
         </div>
