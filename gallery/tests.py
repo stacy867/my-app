@@ -26,6 +26,14 @@ class ImageTestClass(TestCase):
         delete=Image.objects.filter(image_name=image.image_name).delete()
         images=Image.objects.all()
         self.assertTrue(len(images) == 0) 
+
+     # Testing update Method
+    def test_update_method(self):
+        self.image1.save_image()
+        image = Image.objects.filter(image_name='James').first()
+        update=Image.objects.filter(id=image.id).update(image_name="stacy")
+        updated= Image.objects.filter(image_name="stacy").first()
+        self.assertTrue(image.image_name,updated.image_name)    
         
 # Location test
 
@@ -54,6 +62,15 @@ class LocationTestClass(TestCase):
         locations=Location.objects.all()
         self.assertTrue(len(locations) == 0) 
 
+    
+     # Testing update Method
+    def test_update_method(self):
+        self.location1.save_location()
+        location = Location.objects.filter(location_name = 'kigali').first()
+        update=Location.objects.filter(id=location.id).update(location_name="kacyiru")
+        updated= Location.objects.filter(location_name="kacyiru").first()
+        self.assertTrue(location.location_name,updated.location_name)    
+
 # category test
 class CategoryTestClass(TestCase):
     
@@ -78,7 +95,15 @@ class CategoryTestClass(TestCase):
         category = Category.objects.filter(name = 'Shoes').first()
         delete=Category.objects.filter(name=Category.name).delete()
         categories=Category.objects.all()
-        self.assertTrue(len(categories) == 0)                     
+        self.assertFalse(len(categories) == 0)  
+
+    # Testing update Method
+    def test_update_method(self):
+        self.category1.save_category()
+        category = Category.objects.filter(name = 'Shoes').first()
+        update=Category.objects.filter(id=category.id).update(name="Dresses")
+        updated= Category.objects.filter(name="Dresses").first()
+        self.assertTrue(category.name,updated.name)                        
                                
    
         
